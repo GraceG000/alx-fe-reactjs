@@ -15,11 +15,11 @@ const RecipeDetail = () => {
 
     return(
         <>
-        <div className="max-w-4xl mx-auto p-6">
+        <div className="max-w-4xl mx-auto mt-7 p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
       <img
         src={recipe.image}
         alt={recipe.title}
-        className="w-full h-64 object-cover rounded-lg mb-6"
+        className="w-full h-96 object-cover rounded-lg mb-6"
       />
 
       <h1 className="text-3xl font-bold mb-4">{recipe.title}</h1>
