@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Spaghetti Carbonara",
+    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+    "image": "pasta.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Chicken Tikka Masala",
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
+    "image": "masalsa.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Beef Burger",
+    "summary": "Mouth-watering beef...so tender..so juicy.",
+    "image": "burger.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Fries",
+    "summary": "Pre-fried and deep-fried for that crunchy goodness.",
+    "image": "fries.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Pizza",
+    "summary": "BBQ sauce...pork...sausage...ham...so yummy!.",
+    "image": "pizza.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Assorted Fried Rice",
+    "summary": "Rice, chicken, sausage, egg, beef...absolutely marvellous:)",
+    "image": "rice.jpeg"
+  },
+  {
+    "id": 7,
+    "title": "Fried Yam",
+    "summary": "Why settle for irish potato, when you have 'yammy'-goodness<3",
+    "image": "yam.jpg"
+  }
+]
