@@ -1,37 +1,79 @@
-import { useParams } from 'react-router-dom'
-import recipes from '../data.json'
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import recipes from "../data.json";
 
 const RecipeDetail = () => {
-  const { id } = useParams()
+    const { id } = useParams();
+    const [recipe, setRecipe] = useState(null);
 
-  const recipe = recipes.find(r => r.id === Number(id))
+    useEffect(()=>{
+        const foundRecipe = recipes.find((r) => r.id === Number(id));
+        setRecipe(foundRecipe);
+    }, [id]);
 
-  if (!recipe) return <p>Recipe not found</p>
+    if(!recipe) return <p className="text-center mt-10">Loading recipe...</p>;
 
-  return (
-    <>
-      <div className='max-w-4xl mx-auto p-6'>
-        <img
-          src={recipe.image}
-          alt={recipe.title}
-          className='w-full h-64 object-cover rounded-lg mb-6'
-        />
+    return(
+        <>
+        <div className="max-w-4xl mx-auto p-6">
+      <img
+        src={recipe.image}
+        alt={recipe.title}
+        className="w-full h-64 object-cover rounded-lg mb-6"
+      />
 
-        <h1 className='text-3xl font-bold mb-4'>{recipe.title}</h1>
+      <h1 className="text-3xl font-bold mb-4">{recipe.title}</h1>
 
-        <h2 className='text-xl font-semibold mb-2'>Ingredients</h2>
+      <h2 className="text-xl font-semibold mb-2">Ingredients</h2>
 
-        <ul className='list-disc pl-5 mb-6'>
-          {recipe?.ingredients?.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
+      <ul className="list-disc pl-5 mb-6">
+        {recipe?.ingredients?.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
 
-        <h2 className='text-xl font-semibold mb-2'>Instructions</h2>
+      <h2 className="text-xl font-semibold mb-2">Instructions</h2>
 
-        <p className='leading-relaxed'>{recipe.instructions}</p>
-      </div>
-    </>
-  )
+      <p className="leading-relaxed">{recipe.instructions}</p>
+    </div>
+        </>
+    )
 }
 export default RecipeDetail;
+// import { useParams } from 'react-router-dom'
+// import recipes from '../data.json'
+
+// const RecipeDetail = () => {
+//   const { id } = useParams()
+
+//   const recipe = recipes.find(r => r.id === Number(id))
+
+//   if (!recipe) return <p>Recipe not found</p>
+
+//   return (
+//     <>
+//       <div className='max-w-4xl mx-auto p-6'>
+//         <img
+//           src={recipe.image}
+//           alt={recipe.title}
+//           className='w-full h-64 object-cover rounded-lg mb-6'
+//         />
+
+//         <h1 className='text-3xl font-bold mb-4'>{recipe.title}</h1>
+
+//         <h2 className='text-xl font-semibold mb-2'>Ingredients</h2>
+
+//         <ul className='list-disc pl-5 mb-6'>
+//           {recipe?.ingredients?.map((item, index) => (
+//             <li key={index}>{item}</li>
+//           ))}
+//         </ul>
+
+//         <h2 className='text-xl font-semibold mb-2'>Instructions</h2>
+
+//         <p className='leading-relaxed'>{recipe.instructions}</p>
+//       </div>
+//     </>
+//   )
+// }
+// export default RecipeDetail;
