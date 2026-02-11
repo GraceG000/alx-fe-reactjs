@@ -1,22 +1,25 @@
 import { useState, useEffect } from 'react'
-import RecipeCard from './RecipeCard';
-import recipes from "../data.json";
+import RecipeCard from './RecipeCard'
+import recipes from '../data.json'
+import { Link } from 'react-router-dom'
 
 const HomePage = () => {
   const [data, setData] = useState([])
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        {/*The two commented lines are valid, if the json file was in the public folder...then setData(result)...*/}
+        {
+          /*The two commented lines are valid, if the json file was in the public folder...then setData(result)...*/
+        }
         // const response = await fetch('data.json')
         // const result = await response.json()
         setData(recipes)
       } catch (error) {
         console.error('Error fetching data:', error)
-      } finally{
-        setLoading(false);
+      } finally {
+        setLoading(false)
       }
     }
     fetchRecipes()
@@ -28,20 +31,20 @@ const HomePage = () => {
 
   return (
     <>
-    <div className='text-center mb-4 mt-4'><h1 className="font-bold text-5xl">Recipes</h1></div>
+      <div className='text-center mb-4 mt-4'>
+        <h1 className='font-bold text-5xl'>Recipes</h1>
+      </div>
       <div className='py-4 px-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
-        {data &&
-          data.map(datum => (
-            <div key={datum.id}>
-              <RecipeCard
-                id={datum.id}
-                title={datum.title}
-                image={datum.image}
-                summary={datum.summary}
-                className="hover:bg-indigo-300 shadow-lg rounded-lg border-black"
-              />
-            </div>
-          ))}
+        {data.map(datum => (
+          <Link key={datum.id} to={`/recipe/${datum.id}`}>
+            <RecipeCard
+              id={datum.id}
+              title={datum.title}
+              image={datum.image}
+              summary={datum.summary}
+            />
+          </Link>
+        ))}
       </div>
     </>
   )
