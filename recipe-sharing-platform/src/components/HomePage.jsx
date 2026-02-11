@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import RecipeCard from './RecipeCard';
+import recipes from "../data.json";
 
 const HomePage = () => {
   const [data, setData] = useState([])
@@ -8,9 +9,9 @@ const HomePage = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch('/data.json')
-        const result = await response.json()
-        setData(result)
+        // const response = await fetch('data.json')
+        // const result = await response.json()
+        setData(recipes)
       } catch (error) {
         console.error('Error fetching data:', error)
       } finally{
