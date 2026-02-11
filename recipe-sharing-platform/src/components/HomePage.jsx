@@ -38,6 +38,7 @@ const HomePage = () => {
                 title={datum.title}
                 image={datum.image}
                 summary={datum.summary}
+                className="hover:bg-indigo-300 shadow-lg rounded-lg"
               />
             </div>
           ))}
