@@ -9,6 +9,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
+        {/*The two commented lines are valid, if the json file was in the public folder...then setData(result)...*/}
         // const response = await fetch('data.json')
         // const result = await response.json()
         setData(recipes)
