@@ -29,7 +29,7 @@ const HomePage = () => {
   return (
     <>
     <div className='text-center mb-4 mt-4'><h1 className="font-bold text-5xl">Recipes</h1></div>
-      <div className='py-4 px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
+      <div className='py-4 px-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
         {data &&
           data.map(datum => (
             <div key={datum.id}>
