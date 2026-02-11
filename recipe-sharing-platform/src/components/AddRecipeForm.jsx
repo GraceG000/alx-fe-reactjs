@@ -3,14 +3,14 @@ import { useState } from "react";
 const AddRecipeForm = () => {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
-  const [instructions, setInstructions] = useState("");
+  const [steps, setSteps] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Basic validation
-    if (!title || !ingredients || !instructions) {
+    if (!title || !ingredients || !steps) {
       setError("All fields are required");
       return;
     }
@@ -27,7 +27,7 @@ const AddRecipeForm = () => {
     const newRecipe = {
       title,
       ingredients: ingredientList,
-      instructions,
+      steps,
     };
 
     console.log(newRecipe);
@@ -67,10 +67,10 @@ const AddRecipeForm = () => {
           className="w-full border rounded-lg p-3 h-24 resize-none focus:outline-none focus:ring"
         />
 
-        {/* Instructions */}
+        {/* Seps */}
         <textarea
           placeholder="Preparation Steps"
-          value={instructions}
+          value={steps}
           onChange={(e) => setInstructions(e.target.value)}
           className="w-full border rounded-lg p-3 h-32 resize-none focus:outline-none focus:ring"
         />
