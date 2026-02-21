@@ -8,35 +8,49 @@ describe("TodoList Component", () => {
 
     render(<TodoList />);
 
-    expect(screen.getByText("Learn React")).toBeInTheDocument();
-    expect(screen.getByText("Write Tests")).toBeInTheDocument();
-    expect(screen.getByText("Build App")).toBeInTheDocument();
-
-  });
-
-  test("adds a new todo", () => {
-
-    render(<TodoList />);
-
-    const input = screen.getByTestId("todo-input");
-
-    fireEvent.change(input, {
-      target: { value: "New Todo" }
-    });
-
-    fireEvent.click(screen.getByText("Add Todo"));
+    expect(
+      screen.getByText("Learn React")
+    ).toBeInTheDocument();
 
     expect(
-      screen.getByText("New Todo")
+      screen.getByText("Study Testing")
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText("Build Todo App")
     ).toBeInTheDocument();
 
   });
+
+
+  test("adds a todo", () => {
+
+    render(<TodoList />);
+
+    const input =
+      screen.getByPlaceholderText("Enter todo");
+
+    fireEvent.change(input, {
+      target: { value: "New Task" }
+    });
+
+    fireEvent.click(
+      screen.getByText("Add Todo")
+    );
+
+    expect(
+      screen.getByText("New Task")
+    ).toBeInTheDocument();
+
+  });
+
 
   test("toggles a todo", () => {
 
     render(<TodoList />);
 
-    const todo = screen.getByText("Learn React");
+    const todo =
+      screen.getByText("Learn React");
 
     fireEvent.click(todo);
 
@@ -45,6 +59,7 @@ describe("TodoList Component", () => {
     );
 
   });
+
 
   test("deletes a todo", () => {
 

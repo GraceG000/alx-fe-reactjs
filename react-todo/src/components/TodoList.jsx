@@ -5,14 +5,14 @@ function TodoList() {
 
   const [todos, setTodos] = useState([
     { id: 1, text: "Learn React", completed: false },
-    { id: 2, text: "Write Tests", completed: false },
-    { id: 3, text: "Build App", completed: false }
+    { id: 2, text: "Study Testing", completed: false },
+    { id: 3, text: "Build Todo App", completed: false }
   ]);
 
   const addTodo = (text) => {
     const newTodo = {
       id: Date.now(),
-      text,
+      text: text,
       completed: false
     };
 
@@ -20,22 +20,26 @@ function TodoList() {
   };
 
   const toggleTodo = (id) => {
-    setTodos(
-      todos.map(todo =>
-        todo.id === id
-          ? { ...todo, completed: !todo.completed }
-          : todo
-      )
+
+    const updatedTodos = todos.map(todo =>
+      todo.id === id
+        ? { ...todo, completed: !todo.completed }
+        : todo
     );
+
+    setTodos(updatedTodos);
   };
 
   const deleteTodo = (id) => {
-    setTodos(
-      todos.filter(todo => todo.id !== id)
-    );
+
+    const updatedTodos =
+      todos.filter(todo => todo.id !== id);
+
+    setTodos(updatedTodos);
   };
 
   return (
+
     <div>
 
       <h1>Todo List</h1>
@@ -50,7 +54,6 @@ function TodoList() {
 
             <span
               onClick={() => toggleTodo(todo.id)}
-              data-testid="todo-item"
               style={{
                 textDecoration:
                   todo.completed ? "line-through" : "none",
@@ -73,6 +76,7 @@ function TodoList() {
       </ul>
 
     </div>
+
   );
 }
 
