@@ -3,6 +3,7 @@ import "@testing-library/jest-dom";
 import TodoList from "../components/TodoList";
 
 
+// Test render
 test("renders TodoList component", () => {
 
   render(<TodoList />);
@@ -14,6 +15,7 @@ test("renders TodoList component", () => {
 });
 
 
+// Test initial todos
 test("renders initial todos", () => {
 
   render(<TodoList />);
@@ -29,31 +31,29 @@ test("renders initial todos", () => {
 });
 
 
-test("adds a todo", () => {
+// Test adding todo
+test("adds todo", () => {
 
   render(<TodoList />);
 
-  const input =
-    screen.getByPlaceholderText("Add Todo");
-
-  fireEvent.change(input, {
-    target: { value: "New Todo" }
-  });
-
+  fireEvent.change(
+    screen.getByPlaceholderText("Add Todo"),
+    { target: { value: "New Task" } }
+  );
 
   fireEvent.click(
     screen.getByText("Add")
   );
 
-
   expect(
-    screen.getByText("New Todo")
+    screen.getByText("New Task")
   ).toBeInTheDocument();
 
 });
 
 
-test("toggles a todo", () => {
+// Test toggle
+test("toggles todo", () => {
 
   render(<TodoList />);
 
@@ -69,16 +69,15 @@ test("toggles a todo", () => {
 });
 
 
-test("deletes a todo", () => {
+// Test delete
+test("deletes todo", () => {
 
   render(<TodoList />);
 
   const deleteButtons =
     screen.getAllByText("Delete");
 
-
   fireEvent.click(deleteButtons[0]);
-
 
   expect(
     screen.queryByText("Learn React")
